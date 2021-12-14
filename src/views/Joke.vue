@@ -24,7 +24,6 @@ export default defineComponent({
     id: 0,
   }),
   mounted() {
-    console.log(this.$route.params.id);
     if (
       localStorage.jokes !== null &&
       Number(this.$route.params.id) !== undefined
@@ -32,12 +31,6 @@ export default defineComponent({
       this.jokes = JSON.parse(localStorage.jokes);
       this.id = Number(this.$route.params.id);
     }
-  },
-  methods: {
-    log() {
-      console.log(this.$route.params.id);
-      console.log(this.jokes);
-    },
   },
 });
 </script>
