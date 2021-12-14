@@ -153,6 +153,10 @@ export default defineComponent({
   box-sizing: border-box;
 }
 
+body {
+  background-color: #222730;
+}
+
 .jokes-page {
   margin: 0 auto;
   gap: 10px;
