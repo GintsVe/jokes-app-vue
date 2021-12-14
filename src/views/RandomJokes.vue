@@ -7,7 +7,7 @@
             class="router-link"
             :to="{ path: `/random-jokes/${id}` }"
           >
-            <div class="joke">
+            <div class="joke center">
               <h2 class="headings2">{{ joke }}</h2>
             </div>
           </router-link>
@@ -46,3 +46,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.center {
+  align-items: center;
+}
+</style>

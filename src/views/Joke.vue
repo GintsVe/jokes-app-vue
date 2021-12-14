@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!error">
+  <div v-if="Object.keys(jokes).length > 0">
     <h1 class="headings1 headings1--color-black">
       Question: {{ jokes.question }}
     </h1>
@@ -19,15 +19,12 @@ export default defineComponent({
   name: "Joke",
   data: () => ({
     jokes: {} as JokeType,
-    error: false,
   }),
   mounted() {
     if (localStorage.jokes !== null) {
       this.jokes = JSON.parse(localStorage.jokes)[
         Number(this.$route.params.id)
       ];
-    } else {
-      this.error = false;
     }
   },
 });
