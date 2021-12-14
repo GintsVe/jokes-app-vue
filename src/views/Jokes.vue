@@ -101,11 +101,7 @@ export default defineComponent({
   },
   methods: {
     clickable() {
-      if (this.newQuestion && this.newAnswer) {
-        return false;
-      } else {
-        return true;
-      }
+      return !(this.newQuestion && this.newAnswer);
     },
 
     submitForm() {
@@ -204,7 +200,6 @@ export default defineComponent({
 }
 
 .button {
-  border: none;
   background-color: #256765;
   color: white;
   font-size: 16px;

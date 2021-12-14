@@ -27,7 +27,7 @@
 import { defineComponent } from "vue";
 import axios from "axios";
 
-type JokeType = {
+type RandomJokeType = {
   error: boolean;
   category?: string;
   joke?: string;
@@ -45,14 +45,14 @@ type JokeType = {
 export default defineComponent({
   name: "Random joke",
   data: () => ({
-    jokeData: {} as JokeType,
+    jokeData: {} as RandomJokeType,
   }),
   mounted() {
     const param = Number(this.$route.params.id);
     axios
       .get(`https://v2.jokeapi.dev/joke/Any?type=single&idRange=${param}`)
       .then((result) => {
-        this.jokeData = result.data as JokeType;
+        this.jokeData = result.data as RandomJokeType;
       });
   },
 });
