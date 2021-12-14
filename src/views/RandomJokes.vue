@@ -1,8 +1,14 @@
 <template>
   <div>
     <div class="jokes-page">
+      <input
+        class="input"
+        placeholder="Search"
+        type="text"
+        v-model="searchInput"
+      />
       <div class="jokes">
-        <div v-for="{ joke, id } in allJokesData.jokes" :key="id">
+        <div v-for="{ joke, id } in filter()" :key="id">
           <router-link
             class="router-link"
             :to="{ path: `/random-jokes/${id}` }"
@@ -36,6 +42,7 @@ export default defineComponent({
   name: "Random jokes",
   data: () => ({
     allJokesData: {} as JokesType,
+    searchInput: "",
   }),
   mounted() {
     axios
@@ -43,6 +50,17 @@ export default defineComponent({
       .then((result) => {
         this.allJokesData = result.data as JokesType;
       });
+  },
+  methods: {
+    filter() {
+      if (!this.searchInput) {
+        return this.allJokesData.jokes;
+      } else {
+        return this.allJokesData.jokes.filter(({ joke }) =>
+          joke.toLowerCase().includes(this.searchInput.toLowerCase())
+        );
+      }
+    },
   },
 });
 </script>

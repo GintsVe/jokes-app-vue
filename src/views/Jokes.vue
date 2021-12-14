@@ -20,14 +20,12 @@
         />
         <button class="button" :disabled="clickable()">Create</button>
       </form>
-      <div>
-        <input
-          class="input"
-          v-model="searchInput"
-          placeholder="Search"
-          type="text"
-        />
-      </div>
+      <input
+        class="input"
+        v-model="searchInput"
+        placeholder="Search"
+        type="text"
+      />
       <div class="jokes">
         <div
           v-for="({ question, answer, showAnswer }, index) in filterJokes()"
