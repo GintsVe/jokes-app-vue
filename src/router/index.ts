@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Jokes from "../views/Jokes.vue";
 import RandomJokes from "@/views/RandomJokes.vue";
+import Joke from "@/views/Joke.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -13,7 +14,15 @@ const routes: Array<RouteRecordRaw> = [
     name: "Random jokes",
     component: RandomJokes,
   },
-  { path: "/", redirect: "/jokes" },
+  {
+    path: "/jokes/:id",
+    name: "Joke",
+    component: Joke,
+  },
+  {
+    path: "/",
+    redirect: "/jokes",
+  },
 ];
 
 const router = createRouter({
