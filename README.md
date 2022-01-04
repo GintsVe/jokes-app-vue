@@ -1,4 +1,4 @@
-# md37
+# Jokes app
 
 ## Project setup
 ```
